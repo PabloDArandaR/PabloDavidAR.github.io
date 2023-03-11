@@ -27,7 +27,7 @@ jobs:
         run: hugo --minify --verbose --gc
 
       - name: List directories
-        run: ls -a
+        run: ls -a && cd public && echo "New dir" && ls -a
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
