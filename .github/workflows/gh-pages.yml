@@ -7,30 +7,37 @@ on:
   pull_request:
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-22.04
     steps:
 
+      # Checkout the master branch
       - name: Checkout branch
         uses: actions/checkout@v3
         with:
           submodules: true
           fetch-depth: 0
 
+      # Setup and download Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
           extended: true
 
+      # Build the page with Hugo after the changes
       - name: Build
         run: hugo --minify --verbose --gc
 
-      - name: List directories
-        run: ls -a && cd public && echo "New dir" && ls -a
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
 
+      # Deploy takes the publish_dir and puts it in the new branch gh-pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+
+      # Step lacking to use this as the branch to publish
