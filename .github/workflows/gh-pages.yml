@@ -29,6 +29,12 @@ jobs:
       - name: Build
         run: hugo --minify --verbose --gc
 
+      # Upload artifacts (what the hell are those?)
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./public
+
   deploy:
     needs: build
     runs-on: ubuntu-22.04
