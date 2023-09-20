@@ -1,7 +1,7 @@
 baseurl      = "pablodavidar.github.io"
 title        = "Capek Dream"
 languageCode = "en-us"
-theme        = "hello-friend-ng"
+theme        = "PaperMod"
 paginate     = 10
 
 [params]
@@ -49,4 +49,4 @@ paginate     = 10
   [[menu.main]]
     identifier = "blog"
     name       = "Blog"
-    url        = "/posts"
+    url        = "/content/posts/intro.md"
