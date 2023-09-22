@@ -59,7 +59,7 @@ disableHugoGeneratorInject = false
 
    [[params.social]]
     name = "twitter"
-    url  = "https://twitter.com/PabloDavidAR"
+    url  = "https://twitter.com/PabloDArandaR"
 
   [[params.social]]
     name = "email"
@@ -67,7 +67,7 @@ disableHugoGeneratorInject = false
 
   [[params.social]]
     name = "github"
-    url  = "https://github.com/PabloDavidAR"
+    url  = "https://github.com/PabloDArandaR"
 
 [languages]
   [languages.en]
