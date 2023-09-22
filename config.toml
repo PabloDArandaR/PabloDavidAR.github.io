@@ -1,4 +1,4 @@
-baseurl      = "pablodavidar.github.io"
+baseurl      = "https://pablodavidar.github.io/"
 title        = "Capek Dream"
 languageCode = "en-us"
 theme        = "PaperMod"
