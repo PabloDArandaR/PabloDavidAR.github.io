@@ -1,52 +1,86 @@
 baseurl      = "pablodavidar.github.io"
 title        = "Capek Dream"
 languageCode = "en-us"
-theme        = "PaperMod"
-paginate     = 10
+theme        = "hello-friend-ng"
+
+PygmentsCodeFences = true
+PygmentsStyle = "monokai"
+
+archetypeDir = "archetypes"
+contentDir   = "content"
+dataDir      = "data"
+layoutDir    = "layouts"
+publishDir   = "public"
+
+buildDrafts  = false
+buildFuture  = false
+buildExpired = false
+canonifyURLs = true
+
+enableRobotsTXT = true
+enableGitInfo   = false
+enableEmoji     = true
+enableMissingTranslationPlaceholders = false
+disableRSS     = false
+disableSitemap = false
+disable404     = false
+disableHugoGeneratorInject = false
+
+
+[author]
+  name = "PabloDavidAR"
 
 [params]
-  dateform        = "Jan 2, 2006"
-  dateformShort   = "Jan 2"
-  dateformNum     = "2006-01-02"
-  dateformNumTime = "2006-01-02 15:04"
+  homeSubtitle = "Where Men and Craft unite"
 
-  # Subtitle for home
-  homeSubtitle = "A simple and beautiful blog"
 
-  # Set disableReadOtherPosts to true in order to hide the links to other posts.
-  disableReadOtherPosts = false
+  [params.footer]
+    trademark = true
+    rss = true
+    copyright = true
+    author = true
 
-  # Enable sharing buttons, if you like
-  enableSharingButtons = true
+    topText = []
+    bottomText = [
+      "Powered by <a href=\"http://gohugo.io\">Hugo</a>",
+      "Made with &#10084; by <a href=\"https://github.com/rhazdon\">Djordje Atlialp</a>"
+    ]
+  
+  [params.favicon.color]
+    mask = "#1b1c1d"
+    msapplication = "#1b1c1d"
+    theme = "#1b1c1d"
 
-  # Metadata mostly used in document's head
-  description = "My new homepage or blog"
-  keywords = "homepage, blog"
-  images = [""]
+  [params.logo]
+    logoMark     = ">"
+    logoText     = "$ ./bin/capek-dream"
+    logoHomeLink = "/"
+    logoCursorColor    = "#67a2c9"
 
-[taxonomies]
-    category = "blog"
-    tag      = "tags"
-    series   = "series"
+   [[params.social]]
+    name = "twitter"
+    url  = "https://twitter.com/PabloDavidAR"
+
+  [[params.social]]
+    name = "email"
+    url  = "mailto:pablo.arandarod@gmail.com"
+
+  [[params.social]]
+    name = "github"
+    url  = "https://github.com/PabloDavidAR"
 
 [languages]
   [languages.en]
-    title = "Capek Dream"
-    subtitle = "Thoughts and ideas on the future servants"
-    keywords = ""
+    subtitle  = "Hello Friend NG Theme"
+    weight    = 1
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
-    readOtherPosts = "Read other posts"
 
-    [languages.en.params.logo]
-      logoText = "hello friend ng"
-      logoHomeLink = "/"
-    # or
-    #
-    # path = "/img/your-example-logo.svg"
-    # alt = "Your example logo alt text"
-
-  # And you can even create generic menu
+[menu]
   [[menu.main]]
-    identifier = "blog"
-    name       = "Blog"
-    url        = "posts/intro"
+    identifier = "about"
+    name       = "About"
+    url        = "about/"
+  [[menu.main]]
+    identifier = "posts"
+    name       = "Posts"
+    url        = "posts/"
