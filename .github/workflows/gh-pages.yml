@@ -1,17 +1,22 @@
-name: github pages
+name: test
 
 on:
   push:
     branches:
       - main
   pull_request:
+  
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
 
-      # Checkout the master branch
+      # cCheckout main branch
       - name: Checkout branch
         uses: actions/checkout@v3
         with:
@@ -24,34 +29,25 @@ jobs:
         with:
           hugo-version: 'latest'
           extended: true
-
+      
       # Build the page with Hugo after the changes
-      - name: Build
+      - name: Build page
         run: hugo --minify --verbose --gc
-
-      # Upload artifacts (what the hell are those?)
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      
+      - uses: actions/upload-pages-artifact@v2
         with:
-          path: ./public
+          path: ./public/
 
   deploy:
-    needs: build
-    runs-on: ubuntu-22.04
-    
-    permissions:
-      pages: write      # to deploy to Pages
-      id-token: write
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     
+    runs-on: ubuntu-22.04
+    needs: build
     steps:
-
-      # Deploy takes the publish_dir and puts it in the new branch gh-pages
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2
 
-      # Step lacking to use this as the branch to publish
+
